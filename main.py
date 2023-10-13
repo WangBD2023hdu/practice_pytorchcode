@@ -1,16 +1,13 @@
-# This is a sample Python script.
+import argparse
+import train
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    options = argparse.ArgumentParser()
+    options.add_argument("--lr", dest="lr", type=float, default=0.1)
+    options.add_argument("--epoch", dest="epoch", type=int, default=100)
+    #below parameter is not currently active
+    options.add_argument("--path", dest="path", type=str, default="./data" )
+    options.add_argument("--cuda", action="store_true", dest="cuda")
+    parameter = options.parse_args()
+    train.main(parameter.epoch, parameter.lr)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
