@@ -11,5 +11,5 @@ if __name__ == '__main__':
     options.add_argument("--cuda", action="store_true", dest="cuda")
     parameter = options.parse_args()
     print(parameter.lr)
-    #train.main(parameter.epoch, parameter.lr)
+    train.main(parameter.epoch, parameter.lr)
 
